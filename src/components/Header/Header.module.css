@@ -1,0 +1,10 @@
+.header {
+  display: grid;
+  gap: 0.125rem;
+
+  padding-bottom: 1rem;
+  border-bottom: 0.125ch solid var(--surface-diminished);
+}
+
+.title { font-weight: 500; }
+.org { opacity: 0.75; }

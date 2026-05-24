@@ -13,7 +13,6 @@
   --text-heading: #111827;
 
   font-family: var(--sans);
-  font-size: min(4vmin, 1rem);  /* prevent extremely small viewports from breaking fixed aspect-ratio card layout */
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
@@ -26,6 +25,16 @@
   /* change macOS/iOS font smoothing behavior from subpixel to grayscale */
   -webkit-font-smoothing: antialiased;  
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* 
+HACK: cqi units would scale the font with card graphic width, but cause Chrome
+renderer crashes (SIGSEGV) in the card content's grid + container-type combination
+as of May 2026. Using global vmin units as a fallback until browser support stabilizes.
+*/
+:root { font-size: min(4vmin, 20px); }
+@media (min-aspect-ratio: 4/3) {
+  :root { font-size: 3vmin; }
 }
 
 @media (prefers-color-scheme: dark) {

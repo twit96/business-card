@@ -1,7 +1,8 @@
 .wrapper {
-  /* no explicit size - the card's aspect-ratio drives it */
   position: relative;
-  overflow: hidden; /* clip the photo to the wrapper bounds */
+  overflow: hidden;      /* clip photo and SVGs */
+  container-type: size;  /* enable container units on SVGs */
+  /* no explicit size - the card's aspect-ratio drives it */
 }
 
 .photo {
@@ -12,27 +13,28 @@
 }
 
 .divider {
-  --_divider-size: 80px;
+  --_divider-size: 25cqmin;
   position: absolute;
+}
+
+.dividerBottom {
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  width: calc(100% + 2px);
+  height: var(--_divider-size);
+}
+
+.dividerRight {
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  height: calc(100% + 2px);
+  width: var(--_divider-size);
 }
 
 .divider path { fill: var(--surface); }
 
-.dividerBottom {
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: var(--_divider-size);
-  width: 100%;
-}
-
-.dividerRight {
-  top: 0;
-  right: -1px;
-  bottom: 0;
-  width: var(--_divider-size);
-  height: 100%;
-}
 
 /* Toggle Sm/Lg Screen Layouts */
 .dividerBottom { display: block; }
