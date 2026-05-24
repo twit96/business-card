@@ -10,7 +10,7 @@ export default function App() {
       <section className={styles.info}>
         <Header />
         <p>
-          I build efficient, clean, and maintainable systems for the web and for higher education.
+          I program efficient, clean, and maintainable systems for the web and for higher education.
         </p>
         <ContactList />
       </section>
