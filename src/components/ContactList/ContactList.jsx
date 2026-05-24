@@ -1,28 +1,29 @@
 import styles from './ContactList.module.css';
 import ContactLink from '../ContactLink';
-import {
-  Mail,
-  BriefcaseBusiness  /* LinkedIn */,
-  Braces /* GitHub */,
-} from 'lucide-react';
+
+import { MdEmail as EmailIcon } from 'react-icons/md';
+import { 
+  FaLinkedin as LinkedinIcon, 
+  FaGithub as GithubIcon
+} from "react-icons/fa";
 
 const links = [
   {
     id: 'email-cta',
     href: 'mailto:WittigT@wcjc.edu?subject=Nice to meet you&body=Hi Tyler, it was great meeting you.',
-    icon: <Mail color="var(--text)" size="1rem" />,
+    icon: <EmailIcon />,
     label: 'WittigT@wcjc.edu',
   },
   {
     id: 'linkedin',
     href: 'https://linkedin.com/in/tylerwittig',
-    icon: <BriefcaseBusiness color="var(--text)" size="1rem" />,
+    icon: <LinkedinIcon />,
     label: 'linkedin.com/in/tylerwittig',
   },
   {
     id: 'github',
     href: 'https://github.com/twit96',
-    icon: <Braces color="var(--text)" size="1rem" />,
+    icon: <GithubIcon />,
     label: 'github.com/twit96',
   },
 ];

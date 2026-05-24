@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import styles from './ContactLink.module.css';
-import { Copy, ClipboardCheck } from 'lucide-react';
+
+import { BiCopy as CopyIcon } from "react-icons/bi";
+import { HiCheckCircle as CheckIcon } from "react-icons/hi2";
+
 
 export default function ContactLink({ href, icon, label, copyable }) {
 
@@ -31,11 +34,7 @@ export default function ContactLink({ href, icon, label, copyable }) {
           aria-label={`Copy ${label}`}
           title={`Copy ${label}`}
         >
-          {copied ? (
-            <ClipboardCheck color="var(--text)" size="1rem" />
-          ) : (
-            <Copy color="var(--text)" size="1rem" />
-          )}
+          {copied ? <CheckIcon /> : <CopyIcon />}
         </button>
       )}
 
