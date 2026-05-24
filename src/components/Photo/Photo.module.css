@@ -1,0 +1,43 @@
+.wrapper {
+  /* no explicit size - the card's aspect-ratio drives it */
+  position: relative;
+  overflow: hidden; /* clip the photo to the wrapper bounds */
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 45% top; /* keep face in frame */
+}
+
+.divider {
+  --_divider-size: 80px;
+  position: absolute;
+}
+
+.divider path { fill: var(--surface); }
+
+.dividerBottom {
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: var(--_divider-size);
+  width: 100%;
+}
+
+.dividerRight {
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  width: var(--_divider-size);
+  height: 100%;
+}
+
+/* Toggle Sm/Lg Screen Layouts */
+.dividerBottom { display: block; }
+.dividerRight  { display: none; }
+@media (min-aspect-ratio: 4/3) {
+  .dividerBottom { display: none; }
+  .dividerRight  { display: block; }
+}

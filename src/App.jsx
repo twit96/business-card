@@ -1,14 +1,19 @@
 import styles from './App.module.css'
-import ProfileHeader from './components/ProfileHeader'
-import Bio from './components/Bio'
+import Photo from './components/Photo'
+import Header from './components/Header'
 import ContactList from './components/ContactList'
 
 export default function App() {
   return (
-    <div className={styles.page}>
-      <ProfileHeader />
-      <Bio />
-      <ContactList />
-    </div>
+    <main className={styles.card}>
+      <Photo />
+      <section className={styles.info}>
+        <Header />
+        <p>
+          I build efficient, clean, and maintainable systems for the web and for higher education.
+        </p>
+        <ContactList />
+      </section>
+    </main>
   )
 }
