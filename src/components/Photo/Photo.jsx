@@ -1,5 +1,5 @@
-import styles from './Photo.module.css';
-import photo from '../../assets/headshot.jpg';
+import styles from './Photo.module.css'
+import photo from '../../assets/headshot.jpg'
 
 export default function Photo() {
   return (

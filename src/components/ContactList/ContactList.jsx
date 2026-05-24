@@ -1,13 +1,13 @@
-import styles from './ContactList.module.css';
-import ContactLink from '../ContactLink';
+import styles from './ContactList.module.css'
+import ContactLink from '../ContactLink'
 
-import { MdEmail as EmailIcon } from 'react-icons/md';
+import { MdEmail as EmailIcon } from 'react-icons/md'
 import { 
   FaLinkedin as LinkedinIcon, 
   FaGithub as GithubIcon
-} from "react-icons/fa";
+} from "react-icons/fa"
 
-import { intros, defaultIntro } from '../../data/intros';
+import { intros, defaultIntro } from '../../data/intros'
 
 export default function ContactList() {
   const params = new URLSearchParams(window.location.search);
