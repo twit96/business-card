@@ -7,6 +7,7 @@
   --bg: #ffffff;
   --surface: #f3f4f6;
   --surface-diminished: #dce4ee;
+  --shadow: #b6b6b6;
   --accent: #004b16;
 
   --text: #374151;
@@ -26,6 +27,18 @@
   -webkit-font-smoothing: antialiased;  
   -moz-osx-font-smoothing: grayscale;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --surface: #1f2937;
+    --surface-diminished: #2c3544;
+    --shadow: #0b0b0c;
+    --accent: #2b8647;
+
+    --text: #9ca3af;
+    --text-heading: #ccd0da;
+  }
+}
 
 /* 
 HACK: cqi units would scale the font with card graphic width, but cause Chrome
@@ -35,18 +48,6 @@ as of May 2026. Using global vmin units as a fallback until browser support stab
 :root { font-size: min(4vmin, 20px); }
 @media (min-aspect-ratio: 4/3) {
   :root { font-size: 3vmin; }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111827;
-    --surface: #1f2937;
-    --surface-diminished: #2c3544;
-    --accent: #2b8647;
-
-    --text: #9ca3af;
-    --text-heading: #f3f4f6;
-  }
 }
 
 *,
@@ -95,4 +96,12 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+@media (prefers-color-scheme: dark) {
+  img { filter: brightness(0.8); }
+}
+
+hr {
+  border-color: var(--surface-diminished);
+  border-style: solid;
 }

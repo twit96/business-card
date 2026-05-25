@@ -7,9 +7,11 @@
   max-height: 90dvh;
 
   background: var(--surface);
+  border-radius: 1.25rem;
+  overflow: hidden;
   box-shadow: 
-    0 2vmin   3vmin   rgba(0, 0, 0, 0.1), 
-    0 0.8vmin 1.2vmin rgba(0, 0, 0, 0.1);
+    0 2vmin   3vmin   var(--shadow), 
+    0 0.8vmin 1.2vmin var(--shadow);
 
   display: grid;
   grid-template-rows: 3fr 4fr;
