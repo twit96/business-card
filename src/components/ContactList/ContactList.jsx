@@ -1,50 +1,38 @@
 import styles from './ContactList.module.css'
 import ContactLink from '../ContactLink'
 
-import { MdEmail as EmailIcon } from 'react-icons/md'
-import { 
-  FaLinkedin as LinkedinIcon, 
-  FaGithub as GithubIcon
-} from "react-icons/fa"
-
+import { contacts } from '../../data/contacts'
 import { intros, defaultIntro } from '../../data/intros'
 
 export default function ContactList() {
-  const params = new URLSearchParams(window.location.search);
-  const { subject, body } = intros[params.get('intro')] ?? defaultIntro;
+  const params = new URLSearchParams(window.location.search)
+  const { subject, body } = intros[params.get('intro')] ?? defaultIntro
 
-  const links = [
-    {
-      id: 'email-cta',
-      href: `mailto:WittigT@wcjc.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-      icon: <EmailIcon />,
-      label: 'WittigT@wcjc.edu',
-    },
-    {
-      id: 'linkedin',
-      href: 'https://linkedin.com/in/tylerwittig',
-      icon: <LinkedinIcon />,
-      label: 'linkedin.com/in/tylerwittig',
-    },
-    {
-      id: 'github',
-      href: 'https://github.com/twit96',
-      icon: <GithubIcon />,
-      label: 'github.com/twit96',
-    },
-  ];
+  const workContacts = contacts.filter(c => c.category === 'work')
+  const personalContacts = contacts.filter(c => c.category === 'personal')
+
+  const buildHref = ({ id, href }) => {
+    if (id === 'email-work') {
+      return `${href}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    }
+    return href
+  }
+
+  const renderLinks = (list) => list.map((contact) => (
+    <ContactLink
+      key={contact.id}
+      href={buildHref(contact)}
+      icon={contact.icon}
+      label={contact.label}
+      copyValue={contact.copyValue}
+    />
+  ))
 
   return (
     <nav className={styles.list}>
-      {links.map(({ id, href, icon, label }) => (
-        <ContactLink
-          key={id}
-          href={href}
-          icon={icon}
-          label={label}
-          copyable={href?.startsWith('mailto')}  /* make email copyable */
-        />
-      ))}
+      {renderLinks(workContacts)}
+      <hr className={styles.divider} />
+      {renderLinks(personalContacts)}
     </nav>
-  );
+  )
 }
