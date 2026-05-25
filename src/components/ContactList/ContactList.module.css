@@ -1,5 +1,35 @@
 .list {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
   margin-top: auto;
+}
+
+.categoryLabel {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-top: 0.25rem;
+  position: relative;
+}
+/* add decorative line */
+.categoryLabel span {
+  background: var(--surface);
+  padding-inline-end: 1ch;
+  position: relative;
+  z-index: 1;
+}
+.categoryLabel::after {
+  content: '';
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--surface-diminished);
+}
+
+.linkGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  overflow: hidden;
 }

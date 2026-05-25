@@ -3,7 +3,7 @@
   gap: 0.125rem;
 
   padding-bottom: 1rem;
-  border-bottom: 0.125ch solid var(--surface-diminished);
+  border-bottom: 1px solid var(--surface-diminished);
 }
 
 .title { font-weight: 500; }
