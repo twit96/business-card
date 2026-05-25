@@ -22,3 +22,8 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Known Issues
+- Photo renders with a brief scale artifact on initial load in Chrome.
+  Firefox unaffected. Root cause unclear; suspected Chrome compositing
+  behavior with object-fit on a grid child.
