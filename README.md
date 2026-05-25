@@ -23,6 +23,20 @@ npm run dev
 npm run build
 ```
 
+## Testing
+
+Run smoke tests across Chromium, Firefox, and WebKit:
+
+```bash
+npx playwright test
+```
+
+To slow down test execution for local debugging:
+```bash
+npx playwright test --headed
+```
+Add `slowMo` to `playwright.config.js` `launchOptions` to slow between actions.
+
 ## Known Issues
 - Photo renders with a brief scale artifact on initial load in Chrome.
   Firefox unaffected. Root cause unclear; suspected Chrome compositing
