@@ -10,7 +10,7 @@ export default function ContactList() {
   const { subject, body } = intros[params.get('intro')] ?? defaultIntro
 
   const buildHref = ({ id, href }) => {
-    if (id === 'email-work') {
+    if (href.startsWith('mailto:')) {
       return `${href}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     }
     return href
